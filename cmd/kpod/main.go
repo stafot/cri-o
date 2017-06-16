@@ -7,14 +7,17 @@ import (
 	"github.com/urfave/cli"
 )
 
+const Version string = "0.0.1"
+
 func main() {
 	app := cli.NewApp()
 	app.Name = "kpod"
 	app.Usage = "manage pods and images"
-	app.Version = "0.0.1"
+	app.Version = Version
 
 	app.Commands = []cli.Command{
 		launchCommand,
+		versionCommand,
 	}
 
 	if err := app.Run(os.Args); err != nil {
